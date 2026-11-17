@@ -1,0 +1,23 @@
+name: jenkins
+
+services:
+
+  html:
+    image: jenkins:exo
+    build: .
+    container_name: jenkins-exo
+
+    networks:
+      - jenkins-net
+
+    ports:
+      - 83:80
+
+
+networks:
+  jenkins-net:
+    name: jenkins-network
+
+volumes:
+  db-data:
+    name: quest-db-data
